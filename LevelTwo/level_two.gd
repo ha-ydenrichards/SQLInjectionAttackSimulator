@@ -9,7 +9,6 @@ extends Node2D
 @onready var margin_container2 = $MarginContainer2
 @onready var password_show = $PasswordShow
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	password_input.secret = true
