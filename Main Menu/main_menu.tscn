@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4s4om1gc54wv"]
+
+[ext_resource type="Script" uid="uid://blp1t4sql5mj2" path="res://Main Menu/main_menu.gd" id="1_nb5b5"]
+[ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://Assets/pixel background.png" id="2_8ketd"]
+
+[sub_resource type="SystemFont" id="SystemFont_wapo1"]
+font_names = PackedStringArray("Courier New")
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_nb5b5")
+
+[node name="PixelBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 328.5)
+scale = Vector2(1.125, 1.02665)
+texture = ExtResource("2_8ketd")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1153.0
+offset_bottom = 233.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_wapo1")
+theme_override_font_sizes/font_size = 100
+text = "SQL Injection
+Attacks"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_top = 320.0
+offset_right = 1152.0
+offset_bottom = 512.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 250
+
+[node name="levelOne" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="levelTwo" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="levelThree" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="levelFourEC" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level 4
+(EC)"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/levelOne" to="." method="_on_level_one_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/levelTwo" to="." method="_on_level_two_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/levelThree" to="." method="_on_level_three_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/levelFourEC" to="." method="_on_level_four_ec_pressed"]

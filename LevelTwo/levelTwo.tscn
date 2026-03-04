@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://blafnemsuqxcu"]
+
+[ext_resource type="Script" uid="uid://w1yfcv0l5llp" path="res://LevelTwo/level_two.gd" id="1_l8bex"]
+[ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://Assets/pixel background.png" id="2_hk02i"]
+[ext_resource type="AudioStream" uid="uid://dkwa6bgmpclrq" path="res://Soundbits/snd_mtt_prebomb.wav" id="3_me75o"]
+[ext_resource type="AudioStream" uid="uid://74uqwctldq1u" path="res://Soundbits/snd_dumbvictory.wav" id="4_3ylup"]
+[ext_resource type="AudioStream" uid="uid://7bb14yjufbxy" path="res://Soundbits/snd_shock.wav" id="5_f7qsg"]
+[ext_resource type="AudioStream" uid="uid://gxjci74qq6mf" path="res://Soundbits/snd_arrow.wav" id="6_lnqv4"]
+[ext_resource type="AudioStream" uid="uid://m63ea117uq7f" path="res://Soundbits/snd_dimbox.wav" id="7_m0qob"]
+[ext_resource type="Texture2D" uid="uid://bbin03kl477hq" path="res://Assets/eye closed2.png" id="8_btrpu"]
+[ext_resource type="Texture2D" uid="uid://cfbxhp1lqtsmv" path="res://Assets/eye open.png" id="9_svtk4"]
+
+[sub_resource type="SystemFont" id="SystemFont_uqhmt"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_4xtm0"]
+font_names = PackedStringArray("Courier New")
+
+[sub_resource type="SystemFont" id="SystemFont_1an6c"]
+font_names = PackedStringArray("Courier New")
+
+[node name="levelTwo" type="Node2D"]
+script = ExtResource("1_l8bex")
+
+[node name="PixelBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 323)
+scale = Vector2(1.1210938, 1.0219437)
+texture = ExtResource("2_hk02i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 1.0
+offset_top = 220.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 233.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_uqhmt")
+theme_override_font_sizes/font_size = 100
+text = "Level 2
+Login"
+horizontal_alignment = 1
+
+[node name="winning_text" type="Label" parent="."]
+visible = false
+offset_top = 2.0
+offset_right = 1153.0
+offset_bottom = 646.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_4xtm0")
+theme_override_font_sizes/font_size = 45
+text = "LOGIN SUCCESSFUL!
+Press ESC to go back to the Main Menu."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="random_text" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 511.0
+offset_right = 1147.0
+offset_bottom = 560.0
+theme_override_fonts/font = SubResource("SystemFont_1an6c")
+theme_override_font_sizes/font_size = 20
+text = "TASK: You are attempting to login as any user, but are unsure as to any current usernames or passwords in the database. The SQL query is given below.
+
+SELECT * FROM users WHERE username = '$username' AND password = '$password'
+Press the LOGIN button or ENTER to submit the passcode and ESC to go back to the main menu."
+autowrap_mode = 3
+
+[node name="TypeDigit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_me75o")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3ylup")
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f7qsg")
+
+[node name="Delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lnqv4")
+
+[node name="Reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m0qob")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_top = 310.0
+offset_right = 1152.0
+offset_bottom = 506.0
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.95
+
+[node name="Username" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Username"
+
+[node name="UsernameInput" type="LineEdit" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Password" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="LoginButton" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Login"
+
+[node name="PasswordShow" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 751.0
+offset_top = 379.0
+offset_right = 815.0
+offset_bottom = 447.0
+texture_normal = ExtResource("8_btrpu")
+texture_pressed = ExtResource("9_svtk4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="button_down" from="PasswordShow" to="." method="_on_password_show_button_down"]
+[connection signal="button_up" from="PasswordShow" to="." method="_on_password_show_button_up"]

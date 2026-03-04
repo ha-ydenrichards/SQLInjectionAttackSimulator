@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="SQLInjectionAttacks"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://icon.svg"
 
 [display]
 
