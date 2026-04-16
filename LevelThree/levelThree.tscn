@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cshd0wmqx2ghx"]
 
-[ext_resource type="Script" uid="uid://bq5yuyn8q7yr" path="res://LevelThree/level_three.gd" id="1_fm0ql"]
+[ext_resource type="Script" path="res://LevelThree/level_three.gd" id="1_fm0ql"]
 [ext_resource type="Texture2D" uid="uid://ct4b757jd4r2n" path="res://Assets/pixel background.png" id="2_7f0np"]
 [ext_resource type="AudioStream" uid="uid://dkwa6bgmpclrq" path="res://Soundbits/snd_mtt_prebomb.wav" id="3_0aa78"]
 [ext_resource type="AudioStream" uid="uid://74uqwctldq1u" path="res://Soundbits/snd_dumbvictory.wav" id="4_6da3e"]
 [ext_resource type="AudioStream" uid="uid://7bb14yjufbxy" path="res://Soundbits/snd_shock.wav" id="5_kph3j"]
 [ext_resource type="AudioStream" uid="uid://gxjci74qq6mf" path="res://Soundbits/snd_arrow.wav" id="6_edi8f"]
 [ext_resource type="AudioStream" uid="uid://m63ea117uq7f" path="res://Soundbits/snd_dimbox.wav" id="7_s87gs"]
-[ext_resource type="Texture2D" uid="uid://bbin03kl477hq" path="res://Assets/eye closed2.png" id="8_tu5ib"]
-[ext_resource type="Texture2D" uid="uid://cfbxhp1lqtsmv" path="res://Assets/eye open.png" id="9_5iegn"]
+[ext_resource type="Texture2D" uid="uid://cyvium2vujptb" path="res://Assets/eye_closed.png" id="8_tu5ib"]
+[ext_resource type="Texture2D" uid="uid://dgbspvd6cli2q" path="res://Assets/eye_open.png" id="9_5iegn"]
 
 [sub_resource type="SystemFont" id="SystemFont_uqhmt"]
 font_names = PackedStringArray("Courier New")
